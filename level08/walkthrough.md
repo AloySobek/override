@@ -58,7 +58,7 @@ The only thing we should look is source.c file really
 
 As we saw in source.c file the program tries to open ./backups/.tmp for write, argv[1] for read and then, with the exact same path as argv1 tries to open file inside ./backups/
 
-We know that the program has level09's privileges so it has now problem to open the .pass file of the level09's user. So what's stopping us to just mocking the file structure to satisfy the program and just read backed up .pass? Nothing!
+We know that the program has level09's privileges so it has no problem to open the .pass file of the level09's user. So what's stopping us to just mocking the file structure to satisfy the program and just read backed up .pass? Nothing!
 
 ### Getting .pass
 
