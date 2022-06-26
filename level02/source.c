@@ -11,6 +11,7 @@ undefined8 main(void)
     int local_14;
     FILE *local_10;
 
+    // Zeroing local_78;
     puVar4 = local_78;
     for (lVar3 = 0xc; lVar3 != 0; lVar3 = lVar3 + -1)
     {
