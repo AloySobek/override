@@ -48,7 +48,7 @@ Non-debugging symbols:
 
 No global variables
 
-### 'main' dissassembly
+### 'main' disassembly
 
 ```assembly
 (gdb) disas main
@@ -85,7 +85,7 @@ End of assembler dump.
 
 Please refer to the [source.c](./source.c) for better understanding
 
-From disassembled code we can see 0x120 stack frame size and the zeroing instructions which means we have 3 buffers. First will be used as login buffer, second as actual password buffer and the last as password input buffer. Then we can how the program is reading the actual password but does nothing with it. Even 'system' call is present but(spoiler alert) we're not going to need it. And the last and the most interesting part is printf call which uses our first buffer as format string thus allowing is to use format string attack.
+From disassembled code we can see 0x120 stack frame size and the zeroing instructions which means we have 3 buffers. First will be used as login buffer, second as actual password buffer and the last as password input buffer. Then we can see how the program is reading the actual password but does nothing with it. Even 'system' call is present but(spoiler alert) we're not going to need it. And the last and the most interesting part is printf call which uses our first buffer as format string thus allowing us to use format string attack.
 
 ## Exploit
 
@@ -107,12 +107,12 @@ As we can see our first buffer starts at 28th segment. Let's calculate the secon
 
 ### Actual password buffer offset
 
-We know that the difference between first and second buffers is 0x30 bytes. Because our format string if further from printf call we need to substract this difference from first buffer offset which gives us 28 - (48 / 8) == 22.
+We know that the difference between first and second buffers is 0x30 bytes. Because our format string is further from printf call we need to substract this difference from first buffer offset which gives us 28 - (48 / 8) == 22.
 
 
 ### Reading memory where actual password is stored
 
-We've calculated exact location of memory where actual password is stored. The length of the password is 40 bytes. So we need to read 5 segments with 8 bytes in each (5 * 8 = 40)
+We've calculated the exact location of memory where actual password is stored. The length of the password is 40 bytes. So we need to read 5 segments with 8 bytes in each (5 * 8 = 40)
 
 ```bash
 level02@OverRide:~$ ./level02
