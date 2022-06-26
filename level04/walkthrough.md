@@ -65,7 +65,7 @@ So the main function uses 'fork' to clone the process. And after that the parent
 
 ## Exploit
 
-Then, to perform a 'ret2libc' attack we need to understand how the call stack is working. Please refer to the [explanation](https://shellblade.net/files/docs/ret2libc.pdf). Basically we need 3 address, the function that will be executed on ret address, the function that will be served as ret address to the first function and the first function arguments. We will be using 'system', 'exit' and '/bin/sh' string address for this. But firstly we need to find the offset of ret address.
+To perform a 'ret2libc' attack we need to understand how the call stack is working. Please refer to the [explanation](https://shellblade.net/files/docs/ret2libc.pdf). Basically we need 3 address, the function that will be executed on ret address, the function that will be served as ret address to the first function and the first function arguments. We will be using 'system', 'exit' and '/bin/sh' string address for this. But firstly we need to find the offset of ret address.
 
 ### Searching ret offset
 
