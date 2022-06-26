@@ -66,7 +66,7 @@ End of assembler dump.
 
 ## Exploit
 
-We've seen how binary just compares out input password with hard-coded one inside binary without hash or something. We can just use this passwords, haha.
+We've seen how binary just compares our input password with hard-coded one inside binary without hash or something. We can just use this passwords, haha.
 
 ### Getting .pass
 
