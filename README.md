@@ -4,7 +4,7 @@ This project follows the RainFall project. It will teach you how to exploit the 
 
 ## Virutal Machine
 
-The project requires virtual machine with special .iso image. Download it on the project page into this project root
+The project requires virtual machine with special .iso image. Download it on the project page
 
 ### Run
 
